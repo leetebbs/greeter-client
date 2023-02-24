@@ -19,6 +19,8 @@ const Greeter = () => {
       //   "goerli",
       //   "Z_W2-lufRL-2LeMbTOyPemO4ZHnWBHmp"
       // );
+
+      //@Dev  I have downgraded the ethers package in package.json to 5.7.2.
       const provider = new ethers.providers.Web3Provider(window.ethereum)//using metamask as provider
       const wallet = new ethers.Wallet(
         "*********  you need to add the process.env  ************", // i used hardcoded wallet p=Key
