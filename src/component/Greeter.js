@@ -17,7 +17,7 @@ const Greeter = () => {
     const loadCurrentGreeting = async () => {
       // const provider = new ethers.AlchemyProvider(
       //   "goerli",
-      //   "Z_W2-lufRL-2LeMbTOyPemO4ZHnWBHmp"
+      //   "********************"
       // );
 
       //@Dev  I have downgraded the ethers package in package.json to 5.7.2.
@@ -48,7 +48,7 @@ const Greeter = () => {
   const handleSetGreeting = async () => {
     // const provider = new ethers.AlchemyProvider(
     //   "goerli",
-    //   "Z_W2-lufRL-2LeMbTOyPemO4ZHnWBHmp"
+    //   "*****************"
     // );
     const provider = new ethers.providers.Web3Provider(window.ethereum)// usin metamask as provider
 
