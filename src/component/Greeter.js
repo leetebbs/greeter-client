@@ -5,6 +5,8 @@ import globe from "../img/globe.gif";
 
 const greeterContractABI = abi;
 const greeterAddress = "0xfa81A6e1f8651E7564273BB3a97C2B3d4E40d075";
+
+
 const Greeter = () => {
   const [currentGreeting, setCurrentGreeting] = useState("");
   const [newGreeting, setNewGreeting] = useState("");
@@ -13,21 +15,23 @@ const Greeter = () => {
   //Get current greeting
   useEffect(() => {
     const loadCurrentGreeting = async () => {
-      const provider = new ethers.AlchemyProvider(
-        "goerli",
-        process.env.REACT_APP_API_KEY
-      );
+      // const provider = new ethers.AlchemyProvider(
+      //   "goerli",
+      //   "Z_W2-lufRL-2LeMbTOyPemO4ZHnWBHmp"
+      // );
+      const provider = new ethers.providers.Web3Provider(window.ethereum)//using metamask as provider
       const wallet = new ethers.Wallet(
-        process.env.REACT_APP_PRIVATE_KEY,
+        "*********  you need to add the process.env  ************", // i used hardcoded wallet p=Key
         provider
       );
       const greeterContract = new ethers.Contract(
         greeterAddress,
         greeterContractABI,
-        wallet
+        provider // changed this to provider
       );
 
       const currentGreeting = await greeterContract.greet();
+      console.log(currentGreeting)
       setCurrentGreeting(currentGreeting);
     };
 
@@ -40,10 +44,12 @@ const Greeter = () => {
 
   //New greeter message
   const handleSetGreeting = async () => {
-    const provider = new ethers.AlchemyProvider(
-      "goerli",
-      process.env.REACT_APP_API_KEY
-    );
+    // const provider = new ethers.AlchemyProvider(
+    //   "goerli",
+    //   "Z_W2-lufRL-2LeMbTOyPemO4ZHnWBHmp"
+    // );
+    const provider = new ethers.providers.Web3Provider(window.ethereum)// usin metamask as provider
+
     const signer = provider.getSigner();
     const greeterContract = new ethers.Contract(
       greeterAddress,

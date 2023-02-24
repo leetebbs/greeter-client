@@ -1,5 +1,5 @@
 export const abi = [
-  [
+  
     {
       inputs: [{ internalType: "string", name: "_greeting", type: "string" }],
       stateMutability: "nonpayable",
@@ -21,5 +21,5 @@ export const abi = [
       stateMutability: "nonpayable",
       type: "function",
     },
-  ],
+  
 ];
